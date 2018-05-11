@@ -7,11 +7,11 @@ import javax.persistence.OneToOne;
 @Embeddable
 public class Address {
 
+	private String country;
 	private String postalCode;
 	private String street;
 	private String city;
-	private String country;
-	//salut
+	//private String country;
 
 	// postalCode
 	public String getCodePostal() {
