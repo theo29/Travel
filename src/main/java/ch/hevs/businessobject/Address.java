@@ -12,6 +12,7 @@ public class Address {
 	private String city;
 	private String country;
 	//Test Theo
+	//Test Theo in the Valais
 
 	// postalCode
 	public String getCodePostal() {
