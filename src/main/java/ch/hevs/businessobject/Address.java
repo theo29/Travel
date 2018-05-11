@@ -11,12 +11,6 @@ public class Address {
 	private String street;
 	private String city;
 	private String country;
-	//Test Theo
-	//test
-	//fdkafj
-	//test
-	//testagain
-
 
 	// postalCode
 	public String getCodePostal() {
