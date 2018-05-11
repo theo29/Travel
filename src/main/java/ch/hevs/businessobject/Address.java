@@ -16,6 +16,7 @@ public class Address {
 	//fdkafj
 	//test
 
+
 	// postalCode
 	public String getCodePostal() {
 		return postalCode;

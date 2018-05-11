@@ -11,7 +11,7 @@
 		<class>ch.hevs.businessobject.Address</class>
 		<class>ch.hevs.businessobject.Destination</class>
 		<class>ch.hevs.businessobject.Flight</class>
-		<class>ch.hevs.businessobject.User</class>
+		<class>ch.hevs.businessobject.Passenger</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" /> 

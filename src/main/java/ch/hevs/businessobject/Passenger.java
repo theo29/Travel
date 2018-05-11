@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class Passenger {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
@@ -28,10 +28,10 @@ public class User {
 	}
 
 	// constructors
-	public User() {
+	public Passenger() {
 	}
 
-	public User(String firstname, String lastname) {
+	public Passenger(String firstname, String lastname) {
 		this.lastname = lastname;
 		this.firstname = firstname;
 	}	
