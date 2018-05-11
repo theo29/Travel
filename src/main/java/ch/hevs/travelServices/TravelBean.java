@@ -13,7 +13,7 @@ import ch.hevs.businessobject.Destination;
 import ch.hevs.businessobject.DestinationArrival;
 import ch.hevs.businessobject.DestinationDeparture;
 import ch.hevs.businessobject.Flight;
-import ch.hevs.businessobject.User;
+import ch.hevs.businessobject.Passenger;
 
 @Stateful
 @ManagedBean
@@ -41,7 +41,7 @@ public class TravelBean implements Travel {
 		return em.createQuery("FROM DestinationArrival").getResultList();
 	}
 
-	public List<User> getUsers() {
+	public List<Passenger> getUsers() {
 		return em.createQuery("FROM User").getResultList();
 	}
 	
@@ -100,21 +100,21 @@ public class TravelBean implements Travel {
 		Address Nicolas = new Address("1890", "Route de la chapelle 35", "Saint-Maurice", "Suisse");
 
 		//--------------------- Users ---------------------
-		User u1 = new User("Caibis", "Vincent");		
+		Passenger u1 = new Passenger("Caibis", "Vincent");		
 		u1.setAddress(Vincent);
-		User u2 = new User("Nendaz", "Xavier");		
+		Passenger u2 = new Passenger("Nendaz", "Xavier");		
 		u2.setAddress(Xavier);
-		User u3 = new User("Dupont", "Roger");		
+		Passenger u3 = new Passenger("Dupont", "Roger");		
 		u3.setAddress(Roger);
-		User u4 = new User("Germanier","Alexandre");		
+		Passenger u4 = new Passenger("Germanier","Alexandre");		
 		u4.setAddress(Alexandre);
-		User u5 = new User("Bianco", "Laura");		
+		Passenger u5 = new Passenger("Bianco", "Laura");		
 		u5.setAddress(Laura);
-		User u6 = new User("Moulin", "Thierry");		
+		Passenger u6 = new Passenger("Moulin", "Thierry");		
 		u6.setAddress(Thierry);
-		User u7 = new User("Mendes", "David");		
+		Passenger u7 = new Passenger("Mendes", "David");		
 		u7.setAddress(David);
-		User u8 = new User("Maret", "Nicolas");		
+		Passenger u8 = new Passenger("Maret", "Nicolas");		
 		u8.setAddress(Nicolas);
 
 		//--------------------- Departure destinations ---------------------

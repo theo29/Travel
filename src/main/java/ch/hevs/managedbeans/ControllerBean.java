@@ -10,7 +10,7 @@ import ch.hevs.businessobject.Destination;
 import ch.hevs.businessobject.DestinationArrival;
 import ch.hevs.businessobject.DestinationDeparture;
 import ch.hevs.businessobject.Flight;
-import ch.hevs.businessobject.User;
+import ch.hevs.businessobject.Passenger;
 import ch.hevs.travelServices.Travel;
 
 public class ControllerBean
@@ -30,12 +30,12 @@ public class ControllerBean
 	private Flight selectedFlight;
 
 	//profile.xhtml
-	private User currentUser;
+	private Passenger currentUser;
 
 	//administration.xhtml
 	private List<DestinationArrival> arrivalList;
 	private List<DestinationDeparture> departureList;
-	private List<User> userList;
+	private List<Passenger> userList;
 	private int nbTravelers;
 	private int nbDeparture;
 	private int nbArrival;
@@ -66,7 +66,7 @@ public class ControllerBean
 		setDepartureList(travel.getDestinationsDeparture());
 
 		// Create and populate a list of DestinationDeparture objects
-		setUserList(new ArrayList<User>());
+		setUserList(new ArrayList<Passenger>());
 		setUserList(travel.getUsers());
 
 		// Get user N°3 to simulate a logged in user in the profile page
@@ -172,11 +172,11 @@ public class ControllerBean
 		this.departureList = departureList;
 	}
 
-	public List<User> getUserList() {
+	public List<Passenger> getUserList() {
 		return userList;
 	}
 
-	public void setUserList(List<User> userList) {
+	public void setUserList(List<Passenger> userList) {
 		this.userList = userList;
 	}
 
@@ -212,11 +212,11 @@ public class ControllerBean
 		this.nbTravelers = nbTravelers;
 	}
 
-	public User getCurrentUser() {
+	public Passenger getCurrentUser() {
 		return currentUser;
 	}
 
-	public void setCurrentUser(User currentUser) {
+	public void setCurrentUser(Passenger currentUser) {
 		this.currentUser = currentUser;
 	}
 }
