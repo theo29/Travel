@@ -12,7 +12,7 @@ public class Address {
 	private String city;
 	private String country;
 	//Test Theo
-	//Test Darya
+	//test 2
 
 	// postalCode
 	public String getCodePostal() {
