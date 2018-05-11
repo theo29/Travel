@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/BasicTemplate.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="content">
+		<h:form>
+			<h1 class="text-center">Booking page</h1>
+			<br></br>
+			<p:dataTable id="flightDT" var="flight"
+				value="#{ControllerBean.flightList}"
+				selection="#{ControllerBean.selectedFlight}" rowKey="#{flight.id}"
+				widgetVar="flightTable">
+				<p:column selectionMode="single"
+					style="width:32px;text-align:center" />
+				<p:column filterBy="#{flight.flightNumber}"
+					headerText="Flight number" filterMatchMode="contains">
+					<h:outputText value="#{flight.flightNumber}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.passengersNumber}"
+					headerText="Number of passenger">
+					<h:outputText value="#{flight.passengersNumber}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.duration}" headerText="Flight duration">
+					<h:outputText value="#{flight.duration}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.departure}" headerText="Departure time">
+					<h:outputText value="#{flight.departure}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.timeArrival}" headerText="Arrival time">
+					<h:outputText value="#{flight.timeArrival}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.airline}" headerText="Airline"
+					filterMatchMode="contains">
+					<h:outputText value="#{flight.airline}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.fkDestinationDeparture}"
+					headerText="Departure" filterMatchMode="contains">
+					<h:outputText value="#{flight.fkDestinationDeparture}" />
+				</p:column>
+
+				<p:column filterBy="#{flight.fkDestinationArrival}"
+					headerText="Arrival" filterMatchMode="contains">
+					<h:outputText value="#{flight.fkDestinationArrival}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

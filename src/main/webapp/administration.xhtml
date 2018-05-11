@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/BasicTemplate.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="content">
+		<h1 class="text-center">Administration panel</h1>
+		<h:form id="form">
+			<div style="width: 100px; margin: auto;">
+				<h:commandButton value="Populate"
+					action="#{ControllerBean.populateDatabase}" class="btn btn-danger"></h:commandButton>
+			</div>
+			<br></br>
+			<p:tabView title="tab">
+				<p:tab title="Departure Destinations">
+					<p:dataTable var="departure"
+						value="#{ControllerBean.departureList}">
+						<p:column headerText="Destination's Airport">
+							<h:outputText value="#{departure.airportName}" />
+						</p:column>
+
+						<p:column headerText="Gate Number">
+							<h:outputText value="#{departure.gatesNumber}" />
+						</p:column>
+
+						<p:column headerText="City Name">
+							<h:outputText value="#{departure.address.city}" />
+						</p:column>
+
+						<p:column headerText="Postal Code">
+							<h:outputText value="#{departure.address.codePostal}" />
+						</p:column>
+
+						<p:column headerText="Street">
+							<h:outputText value="#{departure.address.street}" />
+						</p:column>
+
+						<p:column headerText="Country">
+							<h:outputText value="#{departure.address.country}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="Arrival Destinations">
+					<p:dataTable var="arrival" value="#{ControllerBean.arrivalList}">
+						<p:column headerText="Arrival's Airport">
+							<h:outputText value="#{arrival.airportName}" />
+						</p:column>
+
+						<p:column headerText="Gate Number">
+							<h:outputText value="#{arrival.gatesNumber}" />
+						</p:column>
+
+						<p:column headerText="City Name">
+							<h:outputText value="#{arrival.address.city}" />
+						</p:column>
+
+						<p:column headerText="Postal Code">
+							<h:outputText value="#{arrival.address.codePostal}" />
+						</p:column>
+
+						<p:column headerText="Street">
+							<h:outputText value="#{arrival.address.street}" />
+						</p:column>
+
+						<p:column headerText="Country">
+							<h:outputText value="#{arrival.address.country}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="Registered Users">
+					<p:dataTable var="user" value="#{ControllerBean.userList}">
+						<p:column headerText="User Firstname">
+							<h:outputText value="#{user.lastname}" />
+						</p:column>
+
+						<p:column headerText="User Lastname">
+							<h:outputText value="#{user.firstname}" />
+						</p:column>
+
+						<p:column headerText="City Name">
+							<h:outputText value="#{user.address.city}" />
+						</p:column>
+
+						<p:column headerText="Postal Code">
+							<h:outputText value="#{user.address.codePostal}" />
+						</p:column>
+
+						<p:column headerText="Street">
+							<h:outputText value="#{user.address.street}" />
+						</p:column>
+
+						<p:column headerText="Country">
+							<h:outputText value="#{user.address.country}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="Available Flights">
+					<p:dataTable var="flight" value="#{ControllerBean.flightList}">
+						<p:column headerText="Flight's Number">
+							<h:outputText value="#{flight.flightNumber}" />
+						</p:column>
+
+						<p:column headerText="Number of passenger">
+							<h:outputText value="#{flight.passengersNumber}" />
+						</p:column>
+
+						<p:column headerText="Flight's duration">
+							<h:outputText value="#{flight.duration}" />
+						</p:column>
+
+						<p:column headerText="Departure time">
+							<h:outputText value="#{flight.departure}" />
+						</p:column>
+
+						<p:column headerText="Arrival time">
+							<h:outputText value="#{flight.timeArrival}" />
+						</p:column>
+
+						<p:column headerText="Airline">
+							<h:outputText value="#{flight.airline}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="Numerical informations">
+					<p:panelGrid columns="2" style=" margin: 0 auto;">
+						<h:outputText value="Number of user" />
+						<h:outputText value="#{ControllerBean.nbTravelers}" />
+
+						<h:outputText value="Number of flight" />
+						<h:outputText value="#{ControllerBean.nbFlight}" />
+
+						<h:outputText value="Number of departure destination" />
+						<h:outputText value="#{ControllerBean.nbDeparture}" />
+
+						<h:outputText value="Number of arrival destination" />
+						<h:outputText value="#{ControllerBean.nbArrival}" />
+					</p:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

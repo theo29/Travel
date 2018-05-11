@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+		<h1 class="text-center">All destinations</h1>
+		<h:form id="form">
+			<p:dataGrid var="destinations" value="#{ControllerBean.destinations}"
+				columns="3" layout="grid" rows="9" paginator="true"
+				id="destinations"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="9,12,16">
+				<p:panel header="#{destinations.address.city}"
+					style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage name="#{destinations.address.city}Icon.jpg" />
+						<p:commandLink update=":form:destinationDetail"
+							oncomplete="PF('destinationDialog').show()" title="View Detail">
+							<h:outputText styleClass="ui-icon ui-icon-search"
+								style="margin:0 auto;" />
+							<f:setPropertyActionListener value="#{destinations}"
+								target="#{ControllerBean.selectedDestination}" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+			</p:dataGrid>
+
+			<p:dialog header="Destination Info" widgetVar="destinationDialog"
+				modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="destinationDetail" style="text-align:center;">
+					<p:panelGrid columns="2"
+						rendered="#{not empty ControllerBean.selectedDestination}"
+						columnClasses="label,value">
+						<f:facet name="header">
+							<p:graphicImage
+								name="#{ControllerBean.selectedDestination.address.city}Medium.jpg" />
+						</f:facet>
+
+						<h:outputText value="Id:" style="color:black" />
+						<h:outputText value="#{ControllerBean.selectedDestination.id}" />
+
+						<h:outputText value="CityName :" style="color:black" />
+						<h:outputText
+							value="#{ControllerBean.selectedDestination.cityName}" />
+
+						<h:outputText value="AirportName :" style="color:black" />
+						<h:outputText
+							value="#{ControllerBean.selectedDestination.airportName}" />
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

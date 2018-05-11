@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/BasicTemplate.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="content">
+		<h1 class="text-center">Profile page</h1>
+		<br></br>
+		<p:panelGrid columns="2" style=" margin: 0 auto;">
+			<f:facet name="header">
+				<p:graphicImage name="#{ControllerBean.currentUser.lastname}.png" />
+			</f:facet>
+
+			<h:outputText value="Firstname:" />
+			<h:outputText value="#{ControllerBean.currentUser.lastname}" />
+
+			<h:outputText value="Lastname" />
+			<h:outputText value="#{ControllerBean.currentUser.firstname}" />
+
+			<h:outputText value="Street" />
+			<h:outputText value="#{ControllerBean.currentUser.address.street}" />
+
+			<h:outputText value="City" />
+			<h:outputText value="#{ControllerBean.currentUser.address.city}" />
+
+			<h:outputText value="postal code" />
+			<h:outputText value="#{ControllerBean.currentUser.address.codePostal}" />
+
+			<h:outputText value="Country" />
+			<h:outputText value="#{ControllerBean.currentUser.address.country}" />
+
+		</p:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>
